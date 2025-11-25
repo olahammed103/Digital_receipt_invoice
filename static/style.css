@@ -1,0 +1,22 @@
+body { font-family: Arial, sans-serif; margin: 20px; }
+nav { margin-bottom: 15px; }
+table { border-collapse: collapse; width: 95%; margin-top: 10px; }
+th, td { border: 1px solid #ddd; padding: 10px; text-align: left; }
+th { background-color: #007BFF; color: white; }
+tr:nth-child(even) { background-color: #f9f9f9; }
+
+.print-btn { background: #28a745; color: white; padding: 6px 12px; text-decoration: none; border-radius: 5px; font-size: 14px; }
+.print-btn:hover { background: #218838; }
+
+.export-btn { background: #007bff; color: white; padding: 6px 12px; text-decoration: none; border-radius: 5px; font-size: 14px; margin-right: 10px; }
+.export-btn:hover { background: #0056b3; }
+
+form { margin-bottom: 10px; }
+input[name="q"] { padding: 6px; width: 300px; border: 1px solid #ccc; border-radius: 5px; }
+.search-btn { padding: 6px 12px; background: #17a2b8; color: white; border: none; border-radius: 5px; cursor: pointer; }
+.search-btn:hover { background: #117a8b; }
+input[type="date"] { padding: 5px; border: 1px solid #ccc; border-radius: 5px; margin-left: 5px; margin-right: 10px; }
+
+.cards { display: flex; gap: 15px; margin-bottom: 20px; }
+.card { flex: 1; background: #f1f1f1; padding: 15px; text-align: center; border-radius: 8px; font-size: 16px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+.card b { font-size: 20px; color: #007BFF; }

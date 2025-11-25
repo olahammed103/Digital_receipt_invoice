@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Transactions</h2>
+
+<form method="get" action="{{ url_for('transactions') }}">
+    <input type="text" name="q" placeholder="Search by invoice, customer, or items" value="{{ query or '' }}">
+    From: <input type="date" name="start_date" value="{{ start_date or '' }}">
+    To: <input type="date" name="end_date" value="{{ end_date or '' }}">
+    <button type="submit" class="search-btn">🔍 Search</button>
+</form>
+
+<div style="margin: 10px 0;">
+    <a href="{{ url_for('export_csv') }}" class="export-btn">⬇ Export to CSV</a>
+    <a href="{{ url_for('export_excel') }}" class="export-btn">⬇ Export to Excel</a>
+</div>
+
+<table>
+    <tr>
+        <th>Invoice No</th>
+        <th>Customer</th>
+        <th>Items</th>
+        <th>Amount</th>
+        <th>Date</th>
+        <th>Action</th>
+    </tr>
+    {% for t in transactions %}
+    <tr>
+        <td>{{ t.invoice_no }}</td>
+        <td>{{ t.customer_name }}</td>
+        <td>{{ t.items }}</td>
+        <td>₦{{ t.amount }}</td>
+        <td>{{ t.date.strftime('%Y-%m-%d %H:%M') }}</td>
+        <td><a href="{{ url_for('receipt', transaction_id=t.id) }}" class="print-btn">🖨 Print</a></td>
+    </tr>
+    {% else %}
+    <tr><td colspan="6" style="text-align:center;">No transactions found.</td></tr>
+    {% endfor %}
+</table>
+{% endblock %}

@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>📊 Dashboard</h2>
+<div class="cards">
+    <div class="card">💰 Total Sales<br><b>₦{{ total_sales }}</b></div>
+    <div class="card">📅 Today’s Sales<br><b>₦{{ today_sales }}</b></div>
+    <div class="card">🗓 This Month<br><b>₦{{ month_sales }}</b></div>
+    <div class="card">👥 Customers<br><b>{{ total_customers }}</b></div>
+</div>
+
+<h3>Recent Transactions</h3>
+<table>
+    <tr>
+        <th>Invoice No</th>
+        <th>Customer</th>
+        <th>Items</th>
+        <th>Amount</th>
+        <th>Date</th>
+    </tr>
+    {% for t in recent_transactions %}
+    <tr>
+        <td>{{ t.invoice_no }}</td>
+        <td>{{ t.customer_name }}</td>
+        <td>{{ t.items }}</td>
+        <td>₦{{ t.amount }}</td>
+        <td>{{ t.date.strftime('%Y-%m-%d %H:%M') }}</td>
+    </tr>
+    {% else %}
+    <tr><td colspan="5" style="text-align:center;">No recent transactions.</td></tr>
+    {% endfor %}
+</table>
+{% endblock %}
